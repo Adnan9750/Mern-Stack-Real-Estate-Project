@@ -62,7 +62,7 @@ const Profile = () => {
   // form submit for updation
   const formSubmit = async (e)=>{
     e.preventDefault()
-    const res = await axios.post(`https://mern-real-estate-fpt2.onrender.com/api/user/update/${currentUser._id}`,formData,
+    const res = await axios.post(`http://localhost:8000/api/user/update/${currentUser._id}`,formData,
       { withCredentials: true })
       dispatch(updateUserSuccess(res.data))
     //  console.log(res.data); 
@@ -70,7 +70,7 @@ const Profile = () => {
 
   // delete account
   const handleDelete = async ()=>{
-    const res = await axios.delete(`https://mern-real-estate-fpt2.onrender.com/api/user/delete/${currentUser._id}`,
+    const res = await axios.delete(`http://localhost:8000/api/user/delete/${currentUser._id}`,
     { withCredentials: true })
     dispatch(deleteUserSuccess(res.data))
   }
@@ -84,7 +84,7 @@ const Profile = () => {
   const handleShowListing = async ()=>{
     try {
       setListingError(false)
-      const res = await axios.get(`https://mern-real-estate-fpt2.onrender.com/api/user/listing/${currentUser._id}`,
+      const res = await axios.get(`http://localhost:8000/api/user/listing/${currentUser._id}`,
       { withCredentials: true })
       setUserListing(res.data)
       // console.log(res);
@@ -94,7 +94,7 @@ const Profile = () => {
   }
   // delete listing
   const handleDeleteList = async (listId) =>{
-    const res = await axios.delete(`https://mern-real-estate-fpt2.onrender.com/api/listing/delete/${listId}`,
+    const res = await axios.delete(`http://localhost:8000/api/listing/delete/${listId}`,
     {withCredentials : true})
     // console.log(res);
     if (res.status === 200){
