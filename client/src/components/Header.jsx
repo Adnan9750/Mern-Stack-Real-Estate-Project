@@ -119,11 +119,18 @@ const Header = () => {
                                 About
                             </li>
                         </Link>
-                        <Link to='/sign-in'>
-                            <li className='text-lg text-black py-1'>
-                                SigIn
-                            </li>
-                        </Link>
+                        <Link to='/profile'>
+                        {
+                            currentUser ?(
+                                    <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
+                                    alt='profile' />
+                                ): (
+                                <li className='text-lg text-black py-1'>
+                                    SigIn
+                                </li>) 
+                        }
+                        </Link> 
+                        
                 </ul>
             </div>
         </header>
