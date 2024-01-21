@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {FaSearch} from 'react-icons/fa'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import {useSelector} from 'react-redux'
 
 const Header = () => {
@@ -9,6 +10,11 @@ const Header = () => {
     const handleMenuToggle = ()=>{
         setisMenuOpen(!isMenuOpen)
     }
+
+    const closeMenu = () => {
+        setisMenuOpen(false);
+    };
+
     const {currentUser} = useSelector(state=> state.persistedReducer.user)
 
     const navigate = useNavigate()
@@ -44,7 +50,8 @@ const Header = () => {
 
   return (
     <>
-        <header className={`max-w-screen-2xl container mx-auto absolute z-10 xl:px-24 px-10 py-1
+        
+   <header className={`max-w-screen-2xl container mx-auto absolute z-10 xl:px-24 px-10 py-1
          `}>
             <div className={`flex justify-between items-center}`}>
                 <Link to='/'>
@@ -92,22 +99,10 @@ const Header = () => {
                         }
                     </Link>    
                 </ul>
-                <div className='block md:hidden mt-3'>
-                    <Link to='/profile'>
-                        {
-                            currentUser ?(
-                                    <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
-                                    alt='profile' />
-                                ): (
-                                <button className='bg-black text-white p-2 px-4 rounded-md'>
-                                    SigIn
-                                </button>) 
-                        }
-                    </Link>
-                </div>
+                
                 {/* Mobile Menu */}
                 <div className='block md:hidden mt-3'>
-                    <button onClick={handleMenuToggle}>
+                    <button onClick={handleMenuToggle} className='border border-black rounded-md p-2'>
                         {
                             isMenuOpen ? 
                                 <FaXmark className='w-7 h-7 text-primary'/> :
@@ -116,33 +111,37 @@ const Header = () => {
                         
                     </button>
                 </div>
+                
             </div>
             {/* Navitems for mobile */}
             <div className={`block md:hidden px-4 py-5 mt-2 bg-slate-300 rounded-sm ${isMenuOpen ? "" : "hidden"}`}>
                 <ul>
-                    <Link to='/' className={({ isActive })=>
+                    <Link to='/' onClick={closeMenu} className={({ isActive })=>
                                 isActive ? "active" : ""
-                            }>
-                            <li className='text-lg text-black py-1'>
-                                Home
-                            </li>
-                        </Link>
-                        <Link to='/about'>
-                            <li className='text-lg text-black py-1'>
+                    }>
+                       <li className='p-4 text-center text-lg border-b rounded-xl hover:opacity-95 duration-300 hover:text-black cursor-pointer border-gray-600'>
+                            Home
+                        </li>
+                    </Link>
+                        <Link to='/about' onClick={closeMenu}>
+                            <li className='p-4 text-center text-lg border-b rounded-xl hover:opacity-95 duration-300 hover:text-black cursor-pointer border-gray-600'>
                                 About
                             </li>
                         </Link>
-                        {/* <Link to='/profile'>
+                        <Link to='/profile' onClick={closeMenu}>
                         {
                             currentUser ?(
+                                <li className='p-4 text-center text-lg border-b rounded-xl hover:opacity-95 duration-300 hover:text-black cursor-pointer border-gray-600'>
                                     <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
-                                    alt='profile' />
+                                        alt='profile' />
+                                </li>
+                                    
                                 ): (
-                                <li className='text-lg text-black py-1'>
+                                <li className='p-4 text-center text-lg border-b rounded-xl hover:opacity-95 duration-300 hover:text-black cursor-pointer border-gray-600'>
                                     SigIn
                                 </li>) 
                         }
-                        </Link>  */}
+                        </Link> 
                         
                 </ul>
             </div>
