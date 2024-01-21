@@ -27,7 +27,7 @@ const Listing = () => {
         const fetchListing = async () =>{
             try {
                 setLoading(true)
-                const res = await axios.get(`http://localhost:8000/api/listing/getList/${params.listId}`)
+                const res = await axios.get(`https://mern-real-estate-fpt2.onrender.com/api/listing/getList/${params.listId}`)
                 setListData(res.data)
                 setLoading(false)
                 setError(false)

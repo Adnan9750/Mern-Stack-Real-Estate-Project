@@ -37,7 +37,7 @@ const UpdateListing = () => {
     useEffect(()=>{
         const fetchListing = async () =>{
             const listId = params.listingId
-            const res = await axios.get(`http://localhost:8000/api/listing/getList/${listId}`) 
+            const res = await axios.get(`https://mern-real-estate-fpt2.onrender.com/api/listing/getList/${listId}`) 
             //  console.log(res);
             setFormData(res.data)
         }
@@ -120,7 +120,7 @@ const UpdateListing = () => {
         if(formData.regularPrice < formData.discountPrice){
             return setError({status:true , message:'Discount price must be less than regular price'})
         }
-        const res = await axios.post(`http://localhost:8000/api/listing/update/${params.listingId}`,
+        const res = await axios.post(`https://mern-real-estate-fpt2.onrender.com/api/listing/update/${params.listingId}`,
             {
                 ...formData,
                 userRef: currentUser._id

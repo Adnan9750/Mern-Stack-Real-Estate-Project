@@ -69,7 +69,7 @@ const SearchList = () => {
         const urlParams = new URLSearchParams(location.search)
         urlParams.set('startIndex',startIndex)
         const searchQuery = urlParams.toString()
-        const res = await axios(`http://localhost:8000/api/listing/search?${searchQuery}`)
+        const res = await axios(`https://mern-real-estate-fpt2.onrender.com/api/listing/search?${searchQuery}`)
         if(res.data < 9){
             setShowMore(false)
         }
@@ -111,7 +111,7 @@ const SearchList = () => {
             setLoading(true)
             setShowMore(false)
             const searchQuery = urlParams.toString()
-            const res = await axios(`http://localhost:8000/api/listing/search?${searchQuery}`)
+            const res = await axios(`https://mern-real-estate-fpt2.onrender.com/api/listing/search?${searchQuery}`)
             if(res.data.length > 8){
                 setShowMore(true)
             }else{

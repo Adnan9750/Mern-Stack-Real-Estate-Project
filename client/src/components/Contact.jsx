@@ -9,7 +9,7 @@ const Contact = ({listing}) => {
 
     useEffect(()=>{
         const fetchLandLord = async ()=>{
-            const res = await axios.get(`http://localhost:8000/api/user/${listing.userRef}`,{withCredentials:true})
+            const res = await axios.get(`https://mern-real-estate-fpt2.onrender.com/api/user/${listing.userRef}`,{withCredentials:true})
             // console.log(res);
             setLandLord(res.data)
         }

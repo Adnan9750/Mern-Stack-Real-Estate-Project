@@ -12,7 +12,7 @@ const ForgotPassword = () => {
             email : data.get('email'),
         }
 
-        const res = await axios.post("http://localhost:8000/api/user/reset-password-email",actualData)
+        const res = await axios.post("https://mern-real-estate-fpt2.onrender.com/api/user/reset-password-email",actualData)
         console.log(res);
         setEmailMsg(res.data)
     }

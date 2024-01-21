@@ -3,7 +3,6 @@ import {FaSearch} from 'react-icons/fa'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import {useSelector} from 'react-redux'
-import { useMediaQuery } from 'react-responsive';
 
 const Header = () => {
     const [isMenuOpen,setisMenuOpen] = useState(false);
@@ -14,7 +13,6 @@ const Header = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
-    const isMediumAndUp = useMediaQuery({ minWidth: 768 });
 
     const [searchTerm,setSearchTerm] = useState('')
 
@@ -24,7 +22,7 @@ const Header = () => {
         // and then (URLSearchParams) search according to it what user search and send in query string
         const urlParams = new URLSearchParams(window.location.search)
         urlParams.set('searchTerm', searchTerm)
-        // urlParams.toString() this means that query is in differnt type spmetime number,boolean etc
+        // urlParams.toString() this means that query is in differnt type sometime number,boolean etc
         // so convert into string
         const searchQuery = urlParams.toString();
         navigate(`/search?${searchQuery}`)
@@ -42,19 +40,7 @@ const Header = () => {
         
     },[location.search])
 
-    // const getNavbarColor = () =>{
-    //     if(location.pathname === '/' && isMediumAndUp){
-    //         return 'text-white'
-    //     }
-    //     return 'text-slate-700'
-    // }
-
-    // const getNavbarLogoColor = () =>{
-    //     if(location.pathname === '/sign-in' && isMediumAndUp){
-    //         return 'text-white'
-    //     }
-    //     return 'text-slate-500'
-    // }
+    
 
   return (
     <>

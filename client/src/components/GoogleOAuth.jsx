@@ -19,7 +19,7 @@ const GoogleOAuth = () => {
             // to backend and saved in database 
             const result = await signInWithPopup(auth,googleProvider)
             // console.log(result);
-            const res = await axios.post('http://localhost:8000/api/auth/google',{
+            const res = await axios.post('https://mern-real-estate-fpt2.onrender.com/api/auth/google',{
                 name:result.user.displayName,
                 email:result.user.email,
                 photo:result.user.photoURL

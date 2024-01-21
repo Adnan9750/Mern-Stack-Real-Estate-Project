@@ -17,7 +17,7 @@ const ResetPassword = () => {
     const formSubmit = async (e) => {
         e.preventDefault()
 
-        const res = await axios.post(`http://localhost:8000/api/user/reset-password/${id}/${token}`,formData)
+        const res = await axios.post(`https://mern-real-estate-fpt2.onrender.com/api/user/reset-password/${id}/${token}`,formData)
         // console.log(res);
     }
 
