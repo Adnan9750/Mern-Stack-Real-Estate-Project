@@ -28,7 +28,7 @@ const SignUp = () => {
     // console.log(res);
     // try {
 
-      const res = await axios.post('http://localhost:8000/api/auth/signup',formData)
+      const res = await axios.post('https://mern-real-estate-fpt2.onrender.com/api/auth/signup',formData)
       document.getElementById('submit-form').reset()
       setTimeout(()=>{
         navigate('/sign-in')
