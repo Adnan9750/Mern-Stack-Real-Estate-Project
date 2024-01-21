@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body{
+    background-color: #f1f5f1;
+} */
+.hero_img{
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
