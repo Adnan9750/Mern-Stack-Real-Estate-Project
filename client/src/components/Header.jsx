@@ -132,7 +132,7 @@ const Header = () => {
                         {
                             currentUser ?(
                                 <li className='p-4 text-center text-lg border-b rounded-xl hover:opacity-95 duration-300 hover:text-black cursor-pointer border-gray-600'>
-                                    <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
+                                    <img className='flex justify-center rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
                                         alt='profile' />
                                 </li>
                                     
