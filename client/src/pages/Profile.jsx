@@ -62,7 +62,7 @@ const Profile = () => {
   // form submit for updation
   const formSubmit = async (e)=>{
     e.preventDefault()
-    const res = await axios.post(`http://localhost:8000/api/user/update/${currentUser._id}`,formData,
+    const res = await axios.post(`https://mern-real-estate-fpt2.onrender.com/api/user/update/${currentUser._id}`,formData,
       { withCredentials: true })
       dispatch(updateUserSuccess(res.data))
     //  console.log(res.data); 
