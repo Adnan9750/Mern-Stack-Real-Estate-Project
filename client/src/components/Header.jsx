@@ -80,7 +80,7 @@ const Header = () => {
                             About
                         </li>
                     </Link>
-                    <Link to='/profile'>
+                    {/* <Link to='/profile'>
                         {
                             currentUser ?(
                                     <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
@@ -90,8 +90,21 @@ const Header = () => {
                                     SigIn
                                 </li>) 
                         }
-                    </Link>    
+                    </Link>     */}
                 </ul>
+                <div className='block mt-3'>
+                    <Link to='/profile'>
+                        {
+                            currentUser ?(
+                                    <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
+                                    alt='profile' />
+                                ): (
+                                <button className='bg-black text-white p-2 px-4 rounded-md'>
+                                    SigIn
+                                </button>) 
+                        }
+                    </Link>
+                </div>
                 {/* Mobile Menu */}
                 <div className='block md:hidden mt-3'>
                     <button onClick={handleMenuToggle}>
@@ -119,7 +132,7 @@ const Header = () => {
                                 About
                             </li>
                         </Link>
-                        <Link to='/profile'>
+                        {/* <Link to='/profile'>
                         {
                             currentUser ?(
                                     <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} 
@@ -129,7 +142,7 @@ const Header = () => {
                                     SigIn
                                 </li>) 
                         }
-                        </Link> 
+                        </Link>  */}
                         
                 </ul>
             </div>
